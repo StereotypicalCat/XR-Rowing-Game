@@ -9,6 +9,7 @@ public class Controls : MonoBehaviour
     private int[,] latestValues = new int[3,2];
     public int movementDeadzone = 20;
     public Player player;
+    public GameManager gm;
     
     // Invoked when a line of data is received from the serial device.
     void OnMessageArrived(string msg)
@@ -41,11 +42,11 @@ public class Controls : MonoBehaviour
             
             if (Math.Abs(leftRotationSensorValue - lastLeftValue) > movementDeadzone)
             {
-             player.turn(Player.direction.Left);   
+             gm.turn(Player.direction.Left);   
             }            
             else if (Math.Abs(rightRotationSensorValue - lastRightValue) > movementDeadzone)
             {
-                player.turn(Player.direction.Right);   
+                gm.turn(Player.direction.Right);   
 
             }
         }
@@ -57,11 +58,11 @@ public class Controls : MonoBehaviour
             
             if (Math.Abs(leftRotationSensorValue - lastLeftValue) > movementDeadzone)
             {
-                player.turn(Player.direction.Left);   
+                gm.turn(Player.direction.Left);   
             }            
             else if (Math.Abs(rightRotationSensorValue - lastRightValue) > movementDeadzone)
             {
-                player.turn(Player.direction.Right);   
+                gm.turn(Player.direction.Right);   
 
             }
         }

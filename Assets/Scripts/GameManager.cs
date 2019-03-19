@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text collectiblesUiElement;
     
     
+    
+    
     // For controlling the current theme
     public enum Theme
     {
@@ -24,7 +26,12 @@ public class GameManager : MonoBehaviour
     
     // Boat moves forward
     [SerializeField] public bool shouldMoveForwards = true;
-    [SerializeField] public Vector3 speed = new Vector3(1, 0, 0);
+
+    public float forwardSpeed = 1;
+    public float sidewaysSpeed = 0.5f;
+    
+    
+    public Player.direction direction;
 
     // Boat goes up and down variables
     [SerializeField] public bool shouldViewBobbing = true;
@@ -58,7 +65,6 @@ public class GameManager : MonoBehaviour
 
         if (shouldMoveForwards)
         {
-
             #region Bobbing
 
             if (shouldViewBobbing)
@@ -71,11 +77,11 @@ public class GameManager : MonoBehaviour
                 {
                     if (boat.transform.localPosition.y > newYPosition)
                     {
-                        boat.transform.Translate(new Vector3(0, -bobbingAmount, 0));
+                        boat.transform.Translate(0, -bobbingAmount, 0);
                     }
                     else
                     {
-                        boat.transform.Translate(new Vector3(0, bobbingAmount, 0));
+                        boat.transform.Translate(0, bobbingAmount, 0);
                     }
 
                 }
@@ -89,10 +95,27 @@ public class GameManager : MonoBehaviour
             #endregion
 
 
-            gameArea.transform.Translate(speed);
+            var newTranslatePosition = new Vector3();
+            if (this.direction == Player.direction.Left)
+            {
+                newTranslatePosition = new Vector3(forwardSpeed, 0, -sidewaysSpeed);
+                print("Turning : Left");
+            }
+            else if (this.direction == Player.direction.Right)
+            {
+                newTranslatePosition = new Vector3(forwardSpeed, 0, sidewaysSpeed);
+                print("Turning : Right");
+
+            }
+            
+            print(newTranslatePosition);
+
+
+            gameArea.transform.Translate(newTranslatePosition);
         }
 
-
+     
+        
 
         // Obstacle Spawning
 
@@ -105,7 +128,10 @@ public class GameManager : MonoBehaviour
 
     }
 
-
+    public void turn(Player.direction turnDirection)
+    {
+        this.direction = turnDirection;
+    }
     public void SpawnWater()
     {
 

@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public GameManager gm;
     public GameObject pickupParticleSystem;
+    public int sidewaysSpeed;
 
     public enum direction
     {
@@ -29,24 +30,6 @@ public class Player : MonoBehaviour
         {
             gm.PlayerHitObstacle();
         }   
-    }
-
-    public void turn(direction turnDirection)
-    {
-        if (turnDirection == direction.Left)
-        {
-            print("Turning: Left");
-            gm.speed = new Vector3(1, 0, 5f);
-            
-        }
-
-        else
-        {
-            print("Turning right");
-            gm.speed = new Vector3(1, 0, -5f);
-
-        }
-        
     }
 
 
