@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\lucas\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\lucas\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Projekt KANO.93393222.00" t="ExcludeRecursive" />
+    <e p="C:\Users\lucas\Documents\Unity Projects\Projekt KANO" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="OthersAssets" t="Include">
+          <e p="Ardity" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Samples" t="Include">
+                <e p="SampleCustomDelimiter.cs" t="Include" />
+                <e p="SampleMessageListener.cs" t="Include" />
+                <e p="SampleTearDown.cs" t="Include" />
+                <e p="SampleUserPolling_JustRead.cs" t="Include" />
+                <e p="SampleUserPolling_ReadWrite.cs" t="Include" />
+              </e>
+              <e p="SerialController.cs" t="Include" />
+              <e p="SerialControllerCustomDelimiter.cs" t="Include" />
+              <e p="Threads" t="Include">
+                <e p="AbstractSerialThread.cs" t="Include" />
+                <e p="SerialThread.cs" t="Include" />
+                <e p="SerialThreadCustomDelimiter.cs" t="Include" />
+                <e p="SerialThreadLines.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="LowPolyWater_Pack" t="Include">
+            <e p="LowPoly Island" t="Include">
+              <e p="Credits.txt" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Editor" t="Include">
+                <e p="GeneratePlane.cs" t="Include" />
+              </e>
+              <e p="LowPolyWater.cs" t="Include" />
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="WaterShaded.shader" t="Include" />
+              <e p="WaterShadedPink.shader" t="Include" />
+            </e>
+          </e>
+          <e p="Polygonal Particles" t="Include">
+            <e p="Assets" t="Include">
+              <e p="Shaders" t="Include">
+                <e p="GradientBackgroundShader.shader" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="TextMesh Pro" t="Include">
+            <e p="Resources" t="Include">
+              <e p="LineBreaking Following Characters.txt" t="Include" />
+              <e p="LineBreaking Leading Characters.txt" t="Include" />
+              <e p="Shaders" t="Include">
+                <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+                <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+                <e p="TMP_Bitmap.shader" t="Include" />
+                <e p="TMP_SDF Overlay.shader" t="Include" />
+                <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+                <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+                <e p="TMP_SDF-Mobile.shader" t="Include" />
+                <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+                <e p="TMP_SDF-Surface.shader" t="Include" />
+                <e p="TMP_SDF.shader" t="Include" />
+                <e p="TMP_Sprite.shader" t="Include" />
+                <e p="TMPro.cginc" t="Include" />
+                <e p="TMPro_Properties.cginc" t="Include" />
+                <e p="TMPro_Surface.cginc" t="Include" />
+              </e>
+            </e>
+            <e p="Sprites" t="Include">
+              <e p="EmojiOne Attribution.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="GitHub" t="Include">
+            <e p="Editor" t="Include">
+              <e p="Credits.txt" t="Include" />
+              <e p="eula.txt" t="Include" />
+              <e p="ExtensionLoader.cs" t="Include" />
+              <e p="UnityAPIWrapper.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Collectible.cs" t="Include" />
+          <e p="Controls.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Projekt KANO.sln" t="IncludeFlat" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
