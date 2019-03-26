@@ -95,20 +95,20 @@ public class GameManager : MonoBehaviour
             #endregion
 
 
-            var newTranslatePosition = new Vector3();
+            var newTranslatePosition = new Vector3(forwardSpeed, 0, 0);
             if (this.direction == Player.direction.Left)
             {
-                newTranslatePosition = new Vector3(forwardSpeed, 0, -sidewaysSpeed);
-                print("Turning : Left");
+              //  newTranslatePosition = new Vector3(forwardSpeed, 0, -sidewaysSpeed);
+             //   print("Turning : Left");
             }
             else if (this.direction == Player.direction.Right)
             {
-                newTranslatePosition = new Vector3(forwardSpeed, 0, sidewaysSpeed);
-                print("Turning : Right");
+             //   newTranslatePosition = new Vector3(forwardSpeed, 0, sidewaysSpeed);
+             //   print("Turning : Right");
 
             }
             
-            print(newTranslatePosition);
+            // print(newTranslatePosition);
 
 
             gameArea.transform.Translate(newTranslatePosition);

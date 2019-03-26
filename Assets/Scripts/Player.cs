@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Pickup"))
+        if (other.CompareTag("Collectible"))
         {
             gm.IncrementCollectiblesCollected();
             var pickupParticles = Instantiate(pickupParticleSystem, other.transform.position, Quaternion.identity);

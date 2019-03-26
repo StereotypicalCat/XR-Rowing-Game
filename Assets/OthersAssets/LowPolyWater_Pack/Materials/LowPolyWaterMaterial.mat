@@ -8,10 +8,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LowPolyWaterMaterial
-  m_Shader: {fileID: 4800000, guid: 88bd153930a3da2418ce4c6f7c0977d8, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
-  m_EnableInstancingVariants: 0
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 6
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -103,6 +103,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 5fbcffe9c2077f04186883cb39275fcc, type: 3}
         m_Scale: {x: 0, y: 0}
         m_Offset: {x: 1, y: 1}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecialWavesTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -128,8 +132,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AlphaClip: 0
     - _Ambient: 1
+    - _Blend: 0
     - _BumpScale: 1
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Displacement: 0.27863377
@@ -154,6 +161,7 @@ Material:
     - _Parallax: 0.02
     - _RandomHeight: 0.5
     - _RandomSpeed: 0.5
+    - _ReceiveShadows: 1
     - _ReflDistort: 0.9267696
     - _RefrDistort: 1.4393286
     - _Shininess: 17.1
@@ -163,6 +171,7 @@ Material:
     - _SpecularHighlights: 1
     - _Speed: 0.4137931
     - _SrcBlend: 1
+    - _Surface: 0
     - _UVSec: 0
     - _WaterDepth: 40.98077
     - _WaveCapsAmount: 0.18275861
@@ -171,6 +180,7 @@ Material:
     - _WaveLength: 0.5
     - _WaveScale: 0.046289656
     - _WaveSpeed: 1
+    - _WorkflowMode: 1
     - _ZWrite: 1
     - _isInnerAlphaBlendOrColor: 0
     m_Colors:
@@ -181,7 +191,7 @@ Material:
     - _BumpDirection: {r: 30, g: 30, b: 30, a: -50}
     - _BumpMap_ST: {r: 1, g: 1, b: 0, a: 0}
     - _BumpTiling: {r: 0.01, g: 0.01, b: 0.01, a: 0.01}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.4245283, g: 0.09257891, b: 0.0740922, a: 1}
     - _DepthColor: {r: 0.027511697, g: 0.14179105, b: 0.13226777, a: 0.4627451}
     - _DepthColorFade: {r: 0.8880597, g: 0.27834705, b: 0.44463244, a: 0.22352941}
     - _Displacement: {r: 6.6371665, g: 20.353983, b: -1, a: -0.681416}
