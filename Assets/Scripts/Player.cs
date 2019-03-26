@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
             var pickupParticles = Instantiate(pickupParticleSystem, other.transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             StartCoroutine(deleteGameObjectAfterSeconds(pickupParticles, 3));
-
+            gm.playCollectibleSound();
 
         }
         else if (other.CompareTag("Obstacle"))

@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
 
     public int collectiblesCollected = 0;
     public TMP_Text collectiblesUiElement;
-    
-    
+
+    public SoundManager soundMan;
     
     
     // For controlling the current theme
@@ -146,6 +146,14 @@ public class GameManager : MonoBehaviour
     public void PlayerHitObstacle()
     {
         shouldMoveForwards = false;
+        soundMan.playObstacleSound();
+        soundMan.playDeadSound();
     }
+
+    public void playCollectibleSound()
+    {
+        soundMan.playCollectibleSound();
+    }
+    
     
 }
