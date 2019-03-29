@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 7406354}
   - component: {fileID: 7406353}
   - component: {fileID: 7406355}
+  - component: {fileID: 7406356}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -149,7 +150,7 @@ MonoBehaviour:
   soundMan: {fileID: 7406355}
   shouldMoveForwards: 1
   forwardSpeed: 1
-  sidewaysSpeed: 0.5
+  sidewaysSpeed: 0
   direction: 0
   shouldViewBobbing: 1
   newYPosition: 1
@@ -200,6 +201,38 @@ MonoBehaviour:
   ObstacleAudioSource: {fileID: 1967634818}
   OofAudioClip: {fileID: 8300000, guid: 63a07f4b93688cb44b0106b577f479ef, type: 3}
   OofAudioSource: {fileID: 180990300}
+--- !u!114 &7406356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7406352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bf3009395f2a847aca7d656090f0ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveHeight: 3.5
+  waveFrequency: 0.75
+  waveLength: 1.25
+  interval: 3
+  frameIntervalToWorkOn: 0
+  currentTime: 0
+  waters:
+  - {fileID: 2058242871}
+  - {fileID: 1034076179}
+  - {fileID: 1760890049}
+  waveOriginPosition: {x: 400, y: 500, z: 0}
+  watersMeshFilters:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  watersMeshes:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  vertices: []
 --- !u!1 &176247761 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8869136542253995293, guid: ff4e0fcd59d085346a0e7e0763de9cc8,
@@ -519,6 +552,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1a91952c20acd24b9ea448e168445ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &941619569
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941619563}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1034076179
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +579,6 @@ GameObject:
   - component: {fileID: 1034076183}
   - component: {fileID: 1034076182}
   - component: {fileID: 1034076181}
-  - component: {fileID: 1034076180}
   m_Layer: 0
   m_Name: Water2
   m_TagString: Untagged
@@ -538,24 +586,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1034076180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1034076179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c6a6df342b52d24092cf6bbb590c535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveHeight: 3.5
-  waveFrequency: 0.75
-  waveLength: 1.25
-  interval: 3
-  frameIntervalToWorkOn: 1
-  waveOriginPosition: {x: 400, y: 500, z: 0}
 --- !u!23 &1034076181
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -880,6 +910,21 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 7406353}
+    - target: {fileID: 3595439251484544567, guid: ff4e0fcd59d085346a0e7e0763de9cc8,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 020936e27677faa498aa19070556e507, type: 2}
+    - target: {fileID: 1475978407207428691, guid: ff4e0fcd59d085346a0e7e0763de9cc8,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869136541678407759, guid: ff4e0fcd59d085346a0e7e0763de9cc8,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6183074576398079604, guid: ff4e0fcd59d085346a0e7e0763de9cc8, type: 3}
     - {fileID: 3972558868553553802, guid: ff4e0fcd59d085346a0e7e0763de9cc8, type: 3}
@@ -1136,32 +1181,13 @@ GameObject:
   - component: {fileID: 1760890053}
   - component: {fileID: 1760890052}
   - component: {fileID: 1760890051}
-  - component: {fileID: 1760890050}
   m_Layer: 0
   m_Name: Water3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1760890050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1760890049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c6a6df342b52d24092cf6bbb590c535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveHeight: 3.5
-  waveFrequency: 0.75
-  waveLength: 1.25
-  interval: 3
-  frameIntervalToWorkOn: 2
-  waveOriginPosition: {x: 400, y: 500, z: 0}
+  m_IsActive: 1
 --- !u!23 &1760890051
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1238,7 +1264,6 @@ GameObject:
   - component: {fileID: 2058242875}
   - component: {fileID: 2058242874}
   - component: {fileID: 2058242873}
-  - component: {fileID: 2058242872}
   m_Layer: 0
   m_Name: Water1
   m_TagString: Untagged
@@ -1246,24 +1271,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2058242872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058242871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c6a6df342b52d24092cf6bbb590c535, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveHeight: 3.5
-  waveFrequency: 0.75
-  waveLength: 1.25
-  interval: 3
-  frameIntervalToWorkOn: 0
-  waveOriginPosition: {x: 400, y: 500, z: 0}
 --- !u!23 &2058242873
 MeshRenderer:
   m_ObjectHideFlags: 0

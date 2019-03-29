@@ -1,10 +1,9 @@
-﻿using System;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace LowPolyWater
+public class WaterUpdater : MonoBehaviour
 {
-    public class LowPolyWater : MonoBehaviour
-    {
         public float waveHeight = 0.5f;
         public float waveFrequency = 0.5f;
         public float waveLength = 0.75f;
@@ -14,24 +13,36 @@ namespace LowPolyWater
 
         public float currentTime = 0;
         
+        public GameObject[] waters = new GameObject[3];
+        
         //Position where the waves originate from
         public Vector3 waveOriginPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
-        MeshFilter meshFilter;
-        Mesh mesh;
-        Vector3[] vertices;
+        public MeshFilter[] watersMeshFilters = new MeshFilter[3];
+        public Mesh[] watersMeshes = new Mesh[3];
+        public Vector3[] vertices; 
 
         private void Awake()
         {
-            //Get the Mesh Filter of the gameobject
-            meshFilter = GetComponent<MeshFilter>();
-            mesh = meshFilter.mesh;
+            for (int i = 0; i < waters.Length; i++)
+            {
+                var meshFilter = waters[i].GetComponent<MeshFilter>();
+                watersMeshFilters[i] = meshFilter;
+                watersMeshes[i] = meshFilter.mesh;
+
+            }
         }
 
         void Start()
         {
+            for (int i = 0; i < waters.Length; i++)
+            {
+                CreateMeshLowPoly(watersMeshFilters[i], i);
+            }
+
+            vertices = watersMeshes[0].vertices;
             currentTime = Time.time;
-            CreateMeshLowPoly(meshFilter);
+           
         }
 
         /// <summary>
@@ -39,15 +50,15 @@ namespace LowPolyWater
         /// </summary>
         /// <param name="mf">Mesh filter of gamobject</param>
         /// <returns></returns>
-        MeshFilter CreateMeshLowPoly(MeshFilter mf)
+        void CreateMeshLowPoly(MeshFilter mf, int index)
         {
-            mesh = mf.sharedMesh;
+            watersMeshes[index] = mf.sharedMesh;
 
             //Get the original vertices of the gameobject's mesh
-            Vector3[] originalVertices = mesh.vertices;
+            Vector3[] originalVertices = watersMeshes[index].vertices;
 
             //Get the list of triangle indices of the gameobject's mesh
-            int[] triangles = mesh.triangles;
+            int[] triangles = watersMeshes[index].triangles;
 
             //Create a vector array for new vertices 
             Vector3[] vertices = new Vector3[triangles.Length];
@@ -60,14 +71,11 @@ namespace LowPolyWater
             }
 
             //Update the gameobject's mesh with new vertices
-            mesh.vertices = vertices;
-            mesh.SetTriangles(triangles, 0);
-            mesh.RecalculateBounds();
-            mesh.RecalculateNormals();
-            this.vertices = mesh.vertices;
-
-            
-            return mf;
+            watersMeshes[index].vertices = vertices;
+            watersMeshes[index].SetTriangles(triangles, 0);
+            watersMeshes[index].RecalculateBounds();
+            watersMeshes[index].RecalculateNormals();
+            watersMeshes[index].vertices = watersMeshes[index].vertices;
         }
         
         void Update()
@@ -82,10 +90,16 @@ namespace LowPolyWater
             }
             else if (Time.frameCount % interval == frameIntervalToWorkOn+2)
             {
+                
                 GenerateLastWaves();
-                mesh.RecalculateNormals();
-                mesh.MarkDynamic();
-                mesh.vertices = vertices;
+                
+                
+                for (int i = 0; i < watersMeshes.Length; i++)
+                {
+                    watersMeshes[i].RecalculateNormals();
+                    watersMeshes[i].MarkDynamic();
+                    watersMeshes[i].vertices = vertices;
+                }
                 currentTime = Time.time;
             }            
         }
@@ -115,7 +129,6 @@ namespace LowPolyWater
                 //Update the vertex
 
                 vertices[i] = v;
-
             }
         }
         void GenerateOtherWaves()
@@ -166,4 +179,4 @@ namespace LowPolyWater
         }
         
     }
-}
+    
