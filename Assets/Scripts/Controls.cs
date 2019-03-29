@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class Controls : MonoBehaviour
 {
-    private int cycle = 0;
-    private int[,] latestValues = new int[3,2];
+    private int rightRotationSensorValuesFromLastRead = 0;
+    private int leftRotationSensorValuesFromLastRead = 0;
+    
     public int movementDeadzone = 20;
     public Player player;
     public GameManager gm;
@@ -28,58 +29,21 @@ public class Controls : MonoBehaviour
 
         Int32.TryParse(leftRotationSensorValueAsString, out var leftRotationSensorValue);
         Int32.TryParse(rightRotationSensorValueAsString, out var rightRotationSensorValue);
-
-                        
-        latestValues[cycle, 0] = leftRotationSensorValue;
-        latestValues[cycle, 1] = rightRotationSensorValue;
-
-
         
-        if (cycle != 0)
-        {
-            var lastLeftValue = latestValues[cycle - 1, 0];
-            var lastRightValue = latestValues[cycle - 1, 1];
+
             
-            if (Math.Abs(leftRotationSensorValue - lastLeftValue) > movementDeadzone)
+            if (Math.Abs(leftRotationSensorValue - leftRotationSensorValuesFromLastRead) > movementDeadzone)
             {
              gm.turn(Player.direction.Left);   
             }            
-            else if (Math.Abs(rightRotationSensorValue - lastRightValue) > movementDeadzone)
+            else if (Math.Abs(rightRotationSensorValue - rightRotationSensorValuesFromLastRead) > movementDeadzone)
             {
                 gm.turn(Player.direction.Right);   
 
             }
-        }
 
-        if (cycle == 0)
-        {
-            var lastLeftValue = latestValues[2, 0];
-            var lastRightValue = latestValues[2, 1];
-            
-            if (Math.Abs(leftRotationSensorValue - lastLeftValue) > movementDeadzone)
-            {
-                gm.turn(Player.direction.Left);   
-            }            
-            else if (Math.Abs(rightRotationSensorValue - lastRightValue) > movementDeadzone)
-            {
-                gm.turn(Player.direction.Right);   
-
-            }
-        }
-
-        
-        cycle++;
-        if (cycle >= 3)
-        {
-            cycle = 0;
-        }
-        
-        
-        
-        
-        
-
-
+        leftRotationSensorValuesFromLastRead = leftRotationSensorValue;
+        rightRotationSensorValuesFromLastRead = rightRotationSensorValue;
 
     }
 
