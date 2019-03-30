@@ -20,10 +20,16 @@ public class WaterUpdater : MonoBehaviour
 
         public MeshFilter[] watersMeshFilters = new MeshFilter[3];
         public Mesh[] watersMeshes = new Mesh[3];
-        public Vector3[] vertices; 
+        public Vector3[] vertices;
+
+        public GameManager gm;
 
         private void Awake()
         {
+            gm = this.GetComponent<GameManager>();
+            
+            this.waters = gm.waters;
+            
             for (int i = 0; i < waters.Length; i++)
             {
                 var meshFilter = waters[i].GetComponent<MeshFilter>();

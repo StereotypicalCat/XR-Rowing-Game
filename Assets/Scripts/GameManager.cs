@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Random = System.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,8 +30,6 @@ public class GameManager : MonoBehaviour
 
     public float forwardSpeed = 1;
     public float sidewaysSpeed = 0.5f;
-    
-    
     public Player.direction direction;
 
     // Boat goes up and down variables
@@ -39,7 +38,30 @@ public class GameManager : MonoBehaviour
     public float bobbingRange = 10;
     public float bobbingAmount = 0.3f;
     public float originalYPosition;
+    
+    // Water moves correctly.
+    public GameObject[] waters;
+    public int currentWater = 0;
+    public int waterDistanceDeadzone = 100;
+    public const int WATER_LENGTH = 2000;
 
+    
+    // Spawning objects
+    public bool shouldSpawnObjects = true;
+    public const int WATER_WIDTH = 1000;
+    
+    public float collectibleSpawnRatePercentage = 0.2f;
+    public float collectibleMinDistanceFromPlayer = 400;
+    public float collectibleSpawnDistanceRange = 600;
+
+    public GameObject[] Collectibles;
+    
+    
+    public float obstacleSpawnRatePercentage = 0.05f;
+    public float obstacleMinDistanceFromPlayer = 400;
+    public float obstacleSpawnDistanceRange = 600;
+
+    public GameObject[] Obstacles;
 
 
     // Start is called before the first frame update
@@ -96,33 +118,89 @@ public class GameManager : MonoBehaviour
 
 
             var newTranslatePosition = new Vector3(forwardSpeed, 0, 0);
+            
+            // Move player based on current direction.
             if (this.direction == Player.direction.Left)
             {
-                newTranslatePosition = new Vector3(forwardSpeed, 0, -sidewaysSpeed);
-               // print("Turning : Left");
+                newTranslatePosition.z = -sidewaysSpeed;
+                // print("Turning : Left");
             }
             else if (this.direction == Player.direction.Right)
             {
-               newTranslatePosition = new Vector3(forwardSpeed, 0, sidewaysSpeed);
+                newTranslatePosition.z = -sidewaysSpeed;
               // print("Turning : Right");
-
             }
             
-            // print(newTranslatePosition);
-
-
             gameArea.transform.Translate(newTranslatePosition);
         }
 
      
         
 
-        // Obstacle Spawning
+        // Obstacle & Collectible Spawning
+        if (shouldSpawnObjects)
+        {
+            
+            var randomValue = UnityEngine.Random.value;
 
+            #region collectible
+
+
+            if (randomValue <= collectibleSpawnRatePercentage)
+            {
+                var distanceFromPlayerToSpawnX = gameArea.transform.position.x + collectibleMinDistanceFromPlayer +
+                                                (UnityEngine.Random.value * collectibleSpawnDistanceRange);
+
+                var distanceFromPlayerToSpawnZ = WATER_WIDTH * UnityEngine.Random.value;
+
+                Instantiate(Collectibles[0], new Vector3(distanceFromPlayerToSpawnX + gameArea.transform.position.x, 0, distanceFromPlayerToSpawnZ - WATER_WIDTH*0.5f), Quaternion.identity);
+            }
+            
+            #endregion
+
+            #region obstacle
+
+            if (randomValue <= obstacleSpawnRatePercentage)
+            {
+                var distanceFromPlayerToSpawnX = gameArea.transform.position.x + obstacleMinDistanceFromPlayer +
+                                                 (UnityEngine.Random.value * obstacleSpawnDistanceRange);
+
+                var distanceFromPlayerToSpawnZ = WATER_WIDTH * UnityEngine.Random.value;
+
+                Instantiate(Obstacles[0], new Vector3(distanceFromPlayerToSpawnX + gameArea.transform.position.x, 0, distanceFromPlayerToSpawnZ - WATER_WIDTH*0.5f), Quaternion.identity);
+            }
+
+            #endregion
+            
+        }
 
 
 
         // Water Movement
+
+        #region Water Movement
+        // To test that the following value is positive
+        if (gameArea.transform.position.x > waters[currentWater].transform.position.x + WATER_LENGTH)
+        {
+            
+            // To test the distance between two floats.
+            var currentDistanceBetweenBoatAndCurrentWater =
+                Mathf.Abs(gameArea.transform.position.x - waters[currentWater].transform.position.x);
+            if (currentDistanceBetweenBoatAndCurrentWater > waterDistanceDeadzone)
+            {
+                // Moving the water just enough so it is seamless.
+                waters[currentWater].transform.Translate(WATER_LENGTH * waters.Length-1, 0, 0, Space.World);
+
+                // Reset the counter to not get out of bounds.
+                if (++currentWater > waters.Length - 1)
+                {
+                    currentWater = 0;
+                }
+
+            }
+            
+        }
+        #endregion
 
 
 
