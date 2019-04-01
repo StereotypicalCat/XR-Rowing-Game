@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour
 
                 var distanceFromPlayerToSpawnZ = WATER_WIDTH * UnityEngine.Random.value;
 
-                Instantiate(Collectibles[0], new Vector3(distanceFromPlayerToSpawnX + gameArea.transform.position.x, 0, distanceFromPlayerToSpawnZ - WATER_WIDTH*0.5f), Quaternion.identity);
+                Instantiate(Collectibles[0], new Vector3(distanceFromPlayerToSpawnX + gameArea.transform.position.x, 20, distanceFromPlayerToSpawnZ - WATER_WIDTH*0.5f), Quaternion.Euler( new Vector3(270, 0, 0)));
             }
             
             #endregion
@@ -167,11 +167,11 @@ public class GameManager : MonoBehaviour
 
                 var distanceFromPlayerToSpawnZ = WATER_WIDTH * UnityEngine.Random.value;
 
-                Instantiate(Obstacles[0], new Vector3(distanceFromPlayerToSpawnX + gameArea.transform.position.x, 0, distanceFromPlayerToSpawnZ - WATER_WIDTH*0.5f), Quaternion.identity);
+                Instantiate(Obstacles[0], new Vector3(distanceFromPlayerToSpawnX + gameArea.transform.position.x, 0, distanceFromPlayerToSpawnZ - WATER_WIDTH*0.5f), Quaternion.Euler( new Vector3(90, 0, 90)));
             }
 
             #endregion
-            
+
         }
 
 
