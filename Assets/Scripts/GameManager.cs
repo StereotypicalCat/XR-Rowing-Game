@@ -64,6 +64,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] Obstacles;
 
+    
+    // Speeding Up
+    public int collectiblesToCollectToSpeedUp = 10;
+    public float amountToSpeedUp = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -217,6 +221,15 @@ public class GameManager : MonoBehaviour
     {
         collectiblesCollected++;
         collectiblesUiElement.text = $"Amount of collectibles: {collectiblesCollected}";
+        
+        // Speed up if collected a milestone.
+
+        if (collectiblesCollected % collectiblesToCollectToSpeedUp == 0)
+        {
+            forwardSpeed += amountToSpeedUp;
+        }
+        
+        
     }
 
     public void PlayerHitObstacle()
