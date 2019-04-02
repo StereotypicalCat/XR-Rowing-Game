@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     public float collectibleMinDistanceFromPlayer = 400;
     public float collectibleSpawnDistanceRange = 600;
 
+    // At this point only gummy bears
     public GameObject[] Collectibles;
     
     
@@ -146,21 +147,22 @@ public class GameManager : MonoBehaviour
             #region collectible
 
 
-            if (randomValue <= collectibleSpawnRatePercentage)
+            if (randomValue <= collectibleSpawnRatePercentage*0.01)
             {
                 var distanceFromPlayerToSpawnX = gameArea.transform.position.x + collectibleMinDistanceFromPlayer +
                                                 (UnityEngine.Random.value * collectibleSpawnDistanceRange);
 
                 var distanceFromPlayerToSpawnZ = WATER_WIDTH * UnityEngine.Random.value;
-
-                Instantiate(Collectibles[0], new Vector3(distanceFromPlayerToSpawnX + gameArea.transform.position.x, 20, distanceFromPlayerToSpawnZ - WATER_WIDTH*0.5f), Quaternion.Euler( new Vector3(270, 0, 0)));
+                // -0.001 to make sure we never go out of bounds.
+                int index = (int) Mathf.Floor((Collectibles.Length - 0.001f) * UnityEngine.Random.value);
+                Instantiate(Collectibles[index], new Vector3(distanceFromPlayerToSpawnX + gameArea.transform.position.x, 20, distanceFromPlayerToSpawnZ - WATER_WIDTH*0.5f), Quaternion.Euler( new Vector3(270, 0, 0)));
             }
             
             #endregion
 
             #region obstacle
 
-            if (randomValue <= obstacleSpawnRatePercentage)
+            if (randomValue <= obstacleSpawnRatePercentage*0.01)
             {
                 var distanceFromPlayerToSpawnX = gameArea.transform.position.x + obstacleMinDistanceFromPlayer +
                                                  (UnityEngine.Random.value * obstacleSpawnDistanceRange);
@@ -209,10 +211,6 @@ public class GameManager : MonoBehaviour
     public void turn(Player.direction turnDirection)
     {
         this.direction = turnDirection;
-    }
-    public void SpawnWater()
-    {
-
     }
 
     public void IncrementCollectiblesCollected()

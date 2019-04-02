@@ -164,12 +164,16 @@ MonoBehaviour:
   currentWater: 0
   waterDistanceDeadzone: 10
   shouldSpawnObjects: 1
-  collectibleSpawnRatePercentage: 0.005
+  collectibleSpawnRatePercentage: 5
   collectibleMinDistanceFromPlayer: 1000
   collectibleSpawnDistanceRange: 1000
   Collectibles:
   - {fileID: 1179533392099982640, guid: 943a225fcce43184ca0072f767414307, type: 3}
-  obstacleSpawnRatePercentage: 0.0004
+  - {fileID: 1179533392099982640, guid: 9e0ef244f0649164db77deab90f21792, type: 3}
+  - {fileID: 1179533392099982640, guid: 002d03476de81474f8e494660295829e, type: 3}
+  - {fileID: 1179533392099982640, guid: 73e14c24e3fcb804aba7ae82a3c0d71b, type: 3}
+  - {fileID: 1179533392099982640, guid: a0fdbf1e788082545950a2cd3ec0d5dd, type: 3}
+  obstacleSpawnRatePercentage: 0.05
   obstacleMinDistanceFromPlayer: 1000
   obstacleSpawnDistanceRange: 1000
   Obstacles:
