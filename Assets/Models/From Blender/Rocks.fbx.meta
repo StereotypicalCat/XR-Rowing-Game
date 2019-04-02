@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: 9317eadfac510c743be0497ee9d48584
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cube
+    100002: rock.005
+    100004: rock.008
+    100006: rock.009
+    100008: rock.010
+    100010: rock.012
+    100012: rock.020
+    100014: rock.029
+    100016: rock.038
+    100018: rock.040
+    100020: rock.042
+    100022: rock.043
+    100024: rock.044
+    100026: rock.046
+    100028: rock.047
+    100030: rock.062
+    100032: rock.067
+    100034: rock.069
+    100036: rock.070
+    100038: rock.075
+    100040: rock.076
+    100042: //RootNode
+    400000: Cube
+    400002: rock.005
+    400004: rock.008
+    400006: rock.009
+    400008: rock.010
+    400010: rock.012
+    400012: rock.020
+    400014: rock.029
+    400016: rock.038
+    400018: rock.040
+    400020: rock.042
+    400022: rock.043
+    400024: rock.044
+    400026: rock.046
+    400028: rock.047
+    400030: rock.062
+    400032: rock.067
+    400034: rock.069
+    400036: rock.070
+    400038: rock.075
+    400040: rock.076
+    400042: //RootNode
+    2100000: ROCK
+    2100002: No Name
+    2100004: ROCK.001
+    2300000: Cube
+    2300002: rock.005
+    2300004: rock.008
+    2300006: rock.009
+    2300008: rock.010
+    2300010: rock.012
+    2300012: rock.020
+    2300014: rock.029
+    2300016: rock.038
+    2300018: rock.040
+    2300020: rock.042
+    2300022: rock.043
+    2300024: rock.044
+    2300026: rock.046
+    2300028: rock.047
+    2300030: rock.062
+    2300032: rock.067
+    2300034: rock.069
+    2300036: rock.070
+    2300038: rock.075
+    2300040: rock.076
+    3300000: Cube
+    3300002: rock.005
+    3300004: rock.008
+    3300006: rock.009
+    3300008: rock.010
+    3300010: rock.012
+    3300012: rock.020
+    3300014: rock.029
+    3300016: rock.038
+    3300018: rock.040
+    3300020: rock.042
+    3300022: rock.043
+    3300024: rock.044
+    3300026: rock.046
+    3300028: rock.047
+    3300030: rock.062
+    3300032: rock.067
+    3300034: rock.069
+    3300036: rock.070
+    3300038: rock.075
+    3300040: rock.076
+    4300000: rock.076
+    4300002: rock.075
+    4300004: rock.070
+    4300006: rock.069
+    4300008: rock.067
+    4300010: rock.062
+    4300012: rock.044
+    4300014: rock.043
+    4300016: rock.042
+    4300018: rock.038
+    4300020: rock.029
+    4300022: rock.005
+    4300024: rock.047
+    4300026: rock.040
+    4300028: rock.020
+    4300030: rock.012
+    4300032: rock.009
+    4300034: rock.008
+    4300036: rock.010
+    4300038: rock.046
+    4300040: Cube
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: e244e684287f33247a551bf34be747a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ROCK
+    second: {fileID: 2100000, guid: c9cf3f06837c52c4c97a377632bb5e11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ROCK.001
+    second: {fileID: 2100000, guid: c4b0b4015b1baae459c2bd16a5fc989e, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
