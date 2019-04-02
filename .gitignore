@@ -49,6 +49,8 @@ crashlytics-build.properties
 
 # Other
 .idea/*
+_Builds/*
+
 Assets/Sounds/Background Music.meta
 Assets/Sounds/Background Music/Baggrundsmusik 1.mp3
 Assets/Sounds/Background Music/Baggrundsmusik 1.mp3.meta

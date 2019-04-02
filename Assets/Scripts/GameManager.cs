@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Serialization;
 using Random = System.Random;
 
 public class GameManager : MonoBehaviour
@@ -69,9 +71,20 @@ public class GameManager : MonoBehaviour
     public int collectiblesToCollectToSpeedUp = 10;
     public float amountToSpeedUp = 0.1f;
 
+    // Day-night cycle
+    public Material skyboxDay;
+    public Material skyboxNight;
+    public int DayLength = 4;
+    public bool nextShiftIsDay = false;
+    public float timeAtLastSkyboxShift;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+
+        timeAtLastSkyboxShift = UnityEngine.Time.time;
+        
         collectiblesUiElement.text = $"Amount of collectibles: {collectiblesCollected}";
         
         originalYPosition = boat.transform.localPosition.y;
@@ -79,12 +92,10 @@ public class GameManager : MonoBehaviour
 
         /*originalRotation = boat.transform.rotation.x;
         newRotation = originalRotation;*/
-
-
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
 
 
@@ -208,7 +219,31 @@ public class GameManager : MonoBehaviour
         }
         #endregion
 
+        // Day-night cycle.
 
+        #region day-night cycle
+
+        if (UnityEngine.Time.time > timeAtLastSkyboxShift + DayLength)
+        {
+
+            if (nextShiftIsDay)
+            {
+                RenderSettings.skybox = skyboxDay;
+                nextShiftIsDay = false;
+            }
+            else
+            {
+                RenderSettings.skybox = skyboxNight;
+                nextShiftIsDay = true;
+            }
+            
+            DynamicGI.UpdateEnvironment();
+            timeAtLastSkyboxShift = UnityEngine.Time.time;
+
+        }
+
+        #endregion
+        
 
     }
 
