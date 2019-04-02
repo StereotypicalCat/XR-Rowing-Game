@@ -46,14 +46,9 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
-.idea/.idea.DI Kano/riderModule.iml
-.idea/.idea.DI Kano/.idea/workspace.xml
-.idea/.idea.DI Kano/.idea/vcs.xml
-.idea/.idea.DI Kano/.idea/modules.xml
-.idea/.idea.DI Kano/.idea/misc.xml
-.idea/.idea.DI Kano/.idea/indexLayout.xml
-.idea/.idea.DI Kano/.idea/encodings.xml
-.idea/.idea.DI Kano/.idea/contentModel.xml
+
+# Other
+.idea/*
 Assets/Sounds/Background Music.meta
 Assets/Sounds/Background Music/Baggrundsmusik 1.mp3
 Assets/Sounds/Background Music/Baggrundsmusik 1.mp3.meta

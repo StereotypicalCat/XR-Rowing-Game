@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1179533392102171634}
   - component: {fileID: 5372049313175012258}
   - component: {fileID: 4503664041686395439}
+  - component: {fileID: 42452040}
   m_Layer: 0
   m_Name: Gummy Bear
   m_TagString: Collectible
@@ -108,3 +109,17 @@ MonoBehaviour:
   bobbingDistance: 10
   initialPosition: 0
   goDownwards: 0
+--- !u!114 &42452040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179533392099982640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623f0cf3359e67846bf43ea12edccb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadZone: 100
+  gameAreaTransform: {fileID: 0}

@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collectible : MonoBehaviour
+public class Bobbing : MonoBehaviour
 {
-
     public float bobbingSpeed = 2;
     public float bobbingDistance = 10;
     public float initialPosition;

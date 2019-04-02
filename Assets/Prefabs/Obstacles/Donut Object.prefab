@@ -55733,6 +55733,7 @@ GameObject:
   - component: {fileID: 4117996474579785626}
   - component: {fileID: 3852030425630809193}
   - component: {fileID: 2053830219921827914}
+  - component: {fileID: 7635706104333505924}
   m_Layer: 0
   m_Name: Donut Object
   m_TagString: Obstacle
@@ -55782,6 +55783,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.24, y: 1.18, z: 2.76}
   m_Center: {x: -1, y: 0.81, z: 0}
+--- !u!114 &7635706104333505924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4117996474579815354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623f0cf3359e67846bf43ea12edccb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadZone: 400
+  gameAreaTransform: {fileID: 0}
 --- !u!1 &4117996474579815360
 GameObject:
   m_ObjectHideFlags: 0
