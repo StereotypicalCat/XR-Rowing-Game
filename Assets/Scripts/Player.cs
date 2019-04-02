@@ -8,12 +8,6 @@ public class Player : MonoBehaviour
     public GameObject pickupParticleSystem;
     public int sidewaysSpeed;
 
-    public enum direction
-    {
-        Left,
-        Right
-    }
-
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {

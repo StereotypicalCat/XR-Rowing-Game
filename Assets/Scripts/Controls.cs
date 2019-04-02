@@ -7,15 +7,18 @@ public class Controls : MonoBehaviour
 {
     private int rightRotationSensorValuesFromLastRead = 0;
     private int leftRotationSensorValuesFromLastRead = 0;
-    
+
     public int movementDeadzone = 20;
     public Player player;
     public GameManager gm;
-    
+
+    public float lastTimeRightPlayerPaddled;
+    public float lastTimeLeftPlayerPaddled;
+    public float timeToWaitForNextRow = 1;
+
     // Invoked when a line of data is received from the serial device.
     void OnMessageArrived(string msg)
     {
-        
         // print("Recieved: " + msg);
 
         // The string that arrives looks something like this: R:325|L:286
@@ -29,28 +32,33 @@ public class Controls : MonoBehaviour
 
         Int32.TryParse(leftRotationSensorValueAsString, out var leftRotationSensorValue);
         Int32.TryParse(rightRotationSensorValueAsString, out var rightRotationSensorValue);
-        
 
-            
-            if (Math.Abs(leftRotationSensorValue - leftRotationSensorValuesFromLastRead) > movementDeadzone)
-            {
-             gm.turn(Player.direction.Left);   
-            }            
-            else if (Math.Abs(rightRotationSensorValue - rightRotationSensorValuesFromLastRead) > movementDeadzone)
-            {
-                gm.turn(Player.direction.Right);   
 
-            }
+        if (Math.Abs(leftRotationSensorValue - leftRotationSensorValuesFromLastRead) > movementDeadzone)
+        {
+            gm.leftPlayerIsPaddling = true;
+            lastTimeLeftPlayerPaddled = UnityEngine.Time.time;
+        }
+        else if (lastTimeLeftPlayerPaddled< UnityEngine.Time.time + timeToWaitForNextRow)
+        {
+            gm.leftPlayerIsPaddling = false;
+        }
+
+        if (Math.Abs(rightRotationSensorValue - rightRotationSensorValuesFromLastRead) > movementDeadzone)
+        {
+            gm.rightPlayerIsPaddling = true;
+            lastTimeRightPlayerPaddled = UnityEngine.Time.time;
+        }
+        else if (lastTimeRightPlayerPaddled < UnityEngine.Time.time + timeToWaitForNextRow)
+        {
+            gm.rightPlayerIsPaddling = false;
+        }
 
         leftRotationSensorValuesFromLastRead = leftRotationSensorValue;
         rightRotationSensorValuesFromLastRead = rightRotationSensorValue;
-
     }
 
 
-    
-    
-    
     // Invoked when a connect/disconnect event occurs. The parameter 'success'
     // will be 'true' upon connection, and 'false' upon disconnection or
     // failure to connect.
@@ -58,5 +66,4 @@ public class Controls : MonoBehaviour
     {
         Debug.Log(success ? "Device connected" : "Device disconnected");
     }
-
 }
