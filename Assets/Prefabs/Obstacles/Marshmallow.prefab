@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8762043553996338730}
   - component: {fileID: 5851372596046812196}
   - component: {fileID: 4128070907178499536}
+  - component: {fileID: 8762043553996368395}
   m_Layer: 0
   m_Name: Marshmallow
   m_TagString: Obstacle
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c522e8263fac80d458c6301559be56e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bobbingSpeed: 0.001
+  bobbingSpeed: 0.25
   bobbingDistance: 10
   initialPosition: 0
   goDownwards: 0
@@ -63,6 +64,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadZone: 400
   gameAreaTransform: {fileID: 0}
+--- !u!65 &8762043553996368395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762043553996368394}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.78, y: 2.22, z: 1.64}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8762043553996368398
 GameObject:
   m_ObjectHideFlags: 0

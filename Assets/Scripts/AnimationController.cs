@@ -17,7 +17,7 @@ public class AnimationController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+/*    void Update()
     {
         if (gm.leftPlayerIsPaddling)
         {
@@ -27,5 +27,5 @@ public class AnimationController : MonoBehaviour
         {
             anim.SetBool(IsMoving, false);
         }
-    }
+    }*/
 }

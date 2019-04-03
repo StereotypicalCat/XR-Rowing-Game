@@ -16,46 +16,58 @@ public class Controls : MonoBehaviour
     public float lastTimeLeftPlayerPaddled;
     public float timeToWaitForNextRow = 1;
 
+    private float ignoreFirstMessagesOnStartTime;
+    public float ignoreFirstMessagesOnStartTimeToWait;
+
+
     // Invoked when a line of data is received from the serial device.
+    private void Awake()
+    {
+        ignoreFirstMessagesOnStartTime = UnityEngine.Time.time;
+    }
+
     void OnMessageArrived(string msg)
     {
-        // print("Recieved: " + msg);
-
-        // The string that arrives looks something like this: R:325|L:286
-
-        var messageSplitToRightAndLeft = msg.Split('|');
-
-        var leftRotationSensorValueAsString = messageSplitToRightAndLeft[1].Split(':')[1];
-
-        var rightRotationSensorValueAsString = messageSplitToRightAndLeft[0].Split(':')[1];
-
-
-        Int32.TryParse(leftRotationSensorValueAsString, out var leftRotationSensorValue);
-        Int32.TryParse(rightRotationSensorValueAsString, out var rightRotationSensorValue);
-
-
-        if (Math.Abs(leftRotationSensorValue - leftRotationSensorValuesFromLastRead) > movementDeadzone)
+        if (ignoreFirstMessagesOnStartTime + ignoreFirstMessagesOnStartTimeToWait < UnityEngine.Time.time)
         {
-            gm.leftPlayerIsPaddling = true;
-            lastTimeLeftPlayerPaddled = UnityEngine.Time.time;
-        }
-        else if (lastTimeLeftPlayerPaddled< UnityEngine.Time.time + timeToWaitForNextRow)
-        {
-            gm.leftPlayerIsPaddling = false;
-        }
+            // print("Recieved: " + msg);
 
-        if (Math.Abs(rightRotationSensorValue - rightRotationSensorValuesFromLastRead) > movementDeadzone)
-        {
-            gm.rightPlayerIsPaddling = true;
-            lastTimeRightPlayerPaddled = UnityEngine.Time.time;
-        }
-        else if (lastTimeRightPlayerPaddled < UnityEngine.Time.time + timeToWaitForNextRow)
-        {
-            gm.rightPlayerIsPaddling = false;
-        }
+            // The string that arrives looks something like this: R:325|L:286
 
-        leftRotationSensorValuesFromLastRead = leftRotationSensorValue;
-        rightRotationSensorValuesFromLastRead = rightRotationSensorValue;
+            var messageSplitToRightAndLeft = msg.Split('|');
+
+            var leftRotationSensorValueAsString = messageSplitToRightAndLeft[1].Split(':')[1];
+
+            var rightRotationSensorValueAsString = messageSplitToRightAndLeft[0].Split(':')[1];
+
+
+            Int32.TryParse(leftRotationSensorValueAsString, out var leftRotationSensorValue);
+            Int32.TryParse(rightRotationSensorValueAsString, out var rightRotationSensorValue);
+
+
+            if (Math.Abs(leftRotationSensorValue - leftRotationSensorValuesFromLastRead) > movementDeadzone)
+            {
+                gm.leftPlayerIsPaddling = true;
+                lastTimeLeftPlayerPaddled = Time.time;
+            }
+            else if (lastTimeLeftPlayerPaddled < Time.time + timeToWaitForNextRow)
+            {
+                gm.leftPlayerIsPaddling = false;
+            }
+
+            if (Math.Abs(rightRotationSensorValue - rightRotationSensorValuesFromLastRead) > movementDeadzone)
+            {
+                gm.rightPlayerIsPaddling = true;
+                lastTimeRightPlayerPaddled = Time.time;
+            }
+            else if (lastTimeRightPlayerPaddled < Time.time + timeToWaitForNextRow)
+            {
+                gm.rightPlayerIsPaddling = false;
+            }
+
+            leftRotationSensorValuesFromLastRead = leftRotationSensorValue;
+            rightRotationSensorValuesFromLastRead = rightRotationSensorValue;
+        }
     }
 
 

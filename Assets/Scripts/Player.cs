@@ -18,12 +18,11 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             StartCoroutine(deleteGameObjectAfterSeconds(pickupParticles, 3));
             gm.playCollectibleSound();
-
         }
         else if (other.CompareTag("Obstacle"))
         {
             gm.PlayerHitObstacle();
-        }   
+        }
     }
 
 
@@ -32,6 +31,4 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(timeToWaitInSeconds);
         Destroy(objectToDestroy);
     }
-    
-    
 }
