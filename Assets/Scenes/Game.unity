@@ -2533,6 +2533,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8293619492882084500}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &7147875305367470634
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7147875305367470626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.035, y: 0.05, z: 0.04}
+  m_Center: {x: 0, y: -0.005, z: 0.01}
 --- !u!82 &7433792989736149051 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1455500138813248175, guid: 1021b89dfbccf304b90ea1b20915e6f0,
@@ -2617,6 +2630,12 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 7406353}
+    - target: {fileID: 1164884485931200690, guid: 1021b89dfbccf304b90ea1b20915e6f0,
+        type: 3}
+      propertyPath: explosionParticleSystem
+      value: 
+      objectReference: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb,
+        type: 3}
     - target: {fileID: 1164884485931200689, guid: 1021b89dfbccf304b90ea1b20915e6f0,
         type: 3}
       propertyPath: gm

@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public GameManager gm;
     public GameObject pickupParticleSystem;
+    public GameObject explosionParticleSystem;
 
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
@@ -21,6 +22,8 @@ public class Player : MonoBehaviour
         else if (other.CompareTag("Obstacle"))
         {
             gm.PlayerHitObstacle();
+            Instantiate(explosionParticleSystem, this.transform.position, Quaternion.identity);
+
         }
     }
 
