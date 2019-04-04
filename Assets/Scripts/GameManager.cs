@@ -125,34 +125,15 @@ public class GameManager : MonoBehaviour
         {
             gameCanvas.gameObject.SetActive(false);
 
-
             if (!isGameOver)
             {
                 // Movement
 
+                
                 if (shouldMoveForwards)
                 {
                     #region Bobbing
 
-                    if (shouldViewBobbing)
-                    {
-                        if (Math.Abs(boat.transform.localPosition.y - newYPosition) < bobbingAmount * 2)
-                        {
-                            newYPosition =
-                                UnityEngine.Random.Range(originalYPosition, originalYPosition + bobbingRange);
-                        }
-                        else
-                        {
-                            if (boat.transform.localPosition.y > newYPosition)
-                            {
-                                boat.transform.Translate(0, -bobbingAmount, 0);
-                            }
-                            else
-                            {
-                                boat.transform.Translate(0, bobbingAmount, 0);
-                            }
-                        }
-                    }
 
                     #endregion
 
@@ -330,6 +311,25 @@ public class GameManager : MonoBehaviour
                 if (leftPlayerIsPaddling && rightPlayerIsPaddling)
                 {
                     SceneManager.LoadScene(0);
+                }
+            }
+        }
+        if (shouldViewBobbing && !isGameOver)
+        {
+            if (Math.Abs(boat.transform.localPosition.y - newYPosition) < bobbingAmount * 2)
+            {
+                newYPosition =
+                    UnityEngine.Random.Range(originalYPosition, originalYPosition + bobbingRange);
+            }
+            else
+            {
+                if (boat.transform.localPosition.y > newYPosition)
+                {
+                    boat.transform.Translate(0, -bobbingAmount, 0, Space.World);
+                }
+                else
+                {
+                    boat.transform.Translate(0, bobbingAmount, 0, Space.World);
                 }
             }
         }

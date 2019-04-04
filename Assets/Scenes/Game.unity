@@ -160,7 +160,7 @@ MonoBehaviour:
   direction: 0
   rowingSpeedMultiplierForward: 4
   rowingSpeedMultiplierSideways: 2
-  shouldViewBobbing: 1
+  shouldViewBobbing: 0
   newYPosition: 1
   bobbingRange: 10
   bobbingAmount: 0.1
@@ -290,9 +290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2e97fff3e4b02740a261aa938841036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  isTrue: 0
-  gm: {fileID: 0}
+  animLeft: {fileID: 8293619492882084501}
+  animRight: {fileID: 8293619492882084502}
+  gm: {fileID: 7406353}
 --- !u!1 &38958881
 GameObject:
   m_ObjectHideFlags: 0
@@ -2622,6 +2622,11 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 7406353}
+    - target: {fileID: 1164884485931200689, guid: 1021b89dfbccf304b90ea1b20915e6f0,
+        type: 3}
+      propertyPath: ignoreFirstMessagesOnStartTimeToWait
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1164884485931200688, guid: 1021b89dfbccf304b90ea1b20915e6f0,
         type: 3}
       propertyPath: m_Center.x
@@ -2652,8 +2657,35 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 0.04
       objectReference: {fileID: 0}
+    - target: {fileID: 1164884485931200695, guid: 1021b89dfbccf304b90ea1b20915e6f0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 712560691885574798, guid: 1021b89dfbccf304b90ea1b20915e6f0,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e1a8090b720d56546838f6bbf5cb5004, type: 2}
+    - target: {fileID: 4627281771893018584, guid: 1021b89dfbccf304b90ea1b20915e6f0,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4529078fd8905524a9f52370c8c4053e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1021b89dfbccf304b90ea1b20915e6f0, type: 3}
+--- !u!95 &8293619492882084501 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 712560691885574798, guid: 1021b89dfbccf304b90ea1b20915e6f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8293619492882084500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8293619492882084502 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4627281771893018584, guid: 1021b89dfbccf304b90ea1b20915e6f0,
+    type: 3}
+  m_PrefabInstance: {fileID: 8293619492882084500}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8869136541112073586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 580219214734168038, guid: 1021b89dfbccf304b90ea1b20915e6f0,

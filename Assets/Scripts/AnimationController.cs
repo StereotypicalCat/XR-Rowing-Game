@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class AnimationController : MonoBehaviour
 {
-    public Animator anim;
-    public bool isTrue;
-    private static readonly int IsMoving = Animator.StringToHash("isMoving");
+    public Animator animLeft;
+    public Animator animRight;
+    private static readonly int IsPaddling = Animator.StringToHash("isPaddling");
     public GameManager gm;
 
 
@@ -17,15 +17,9 @@ public class AnimationController : MonoBehaviour
     }
 
     // Update is called once per frame
-/*    void Update()
+    void Update()
     {
-        if (gm.leftPlayerIsPaddling)
-        {
-            anim.SetBool(IsMoving, true);
-        }
-        else
-        {
-            anim.SetBool(IsMoving, false);
-        }
-    }*/
+        animLeft.SetBool(IsPaddling, gm.leftPlayerIsPaddling);
+        animRight.SetBool(IsPaddling, gm.rightPlayerIsPaddling);
+    }
 }
