@@ -1,0 +1,44 @@
+# Colors
+Blåe
+Røde
+Grønne
+Lillae
+Gule
+Orange
+Pinke
+Violette
+
+# Size
+Store
+Gigante
+Enorme
+
+# Countries
+Amerikanske
+Britiske
+Franske
+Japanske
+Norske
+Svenske
+Russiske
+
+# Other
+Fantastiske
+Flotte
+Fornuftige
+Glade
+Gode
+Grundige
+Hellige
+Hurtige
+Interresente
+Moderne
+Mærkelige
+Populære
+Smukke
+Søde
+Venlige
+Vise
+Vilde
+
+

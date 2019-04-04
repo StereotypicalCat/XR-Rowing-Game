@@ -93,6 +93,11 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
     public bool shouldStartGame = false;
 
+    public TMP_Text teamNameTextUI;
+    public string teamName;
+
+    public HighscoreManager HSman;
+
 
     // Start is called before the first frame update
     void Start()
@@ -104,8 +109,13 @@ public class GameManager : MonoBehaviour
         originalYPosition = boat.transform.localPosition.y;
         newYPosition = originalYPosition;
 
-        /*originalRotation = boat.transform.rotation.x;
-        newRotation = originalRotation;*/
+        HSman = this.gameObject.GetComponent<HighscoreManager>();
+
+        
+        
+        teamName = HSman.generateTeamName();
+        print(teamName);
+        teamNameTextUI.text = teamName;
     }
 
     // Update is called once per frame
