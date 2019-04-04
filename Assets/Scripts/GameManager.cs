@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour
     public TMP_Text teamNameTextUI;
     public string teamName;
 
-    public HighscoreManager HSman;
+    public NameGenerator nameGen;
 
 
     // Start is called before the first frame update
@@ -109,11 +109,11 @@ public class GameManager : MonoBehaviour
         originalYPosition = boat.transform.localPosition.y;
         newYPosition = originalYPosition;
 
-        HSman = this.gameObject.GetComponent<HighscoreManager>();
+        nameGen = this.gameObject.GetComponent<NameGenerator>();
 
         
-        
-        teamName = HSman.generateTeamName();
+        nameGen.InitiateNameGenerator();
+        teamName = nameGen.generateTeamName();
         print(teamName);
         teamNameTextUI.text = teamName;
     }
@@ -133,7 +133,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            gameCanvas.gameObject.SetActive(false);
+            firstNewGameCanvas.gameObject.SetActive(false);
+            gameCanvas.gameObject.SetActive(true);
 
             if (!isGameOver)
             {

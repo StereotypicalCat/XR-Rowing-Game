@@ -204,7 +204,7 @@ MonoBehaviour:
   shouldStartGame: 0
   teamNameTextUI: {fileID: 1295727685}
   teamName: 
-  HSman: {fileID: 0}
+  nameGen: {fileID: 0}
 --- !u!4 &7406354
 Transform:
   m_ObjectHideFlags: 0

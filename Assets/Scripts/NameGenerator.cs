@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
-public class HighscoreManager : MonoBehaviour
+public class NameGenerator : MonoBehaviour
 {
 
     public TextAsset subjectivesInTxT;
@@ -18,8 +18,8 @@ public class HighscoreManager : MonoBehaviour
     public bool forFunNamesEnabled = false;
     public float forFunChance = 0.5f;
     
-    
-    void Start()
+    // Needs to get called from GameManager to make sure these are generated before "GenerateTeamName" is called.
+    public void InitiateNameGenerator()
     {
         
         print("SUBJECTIVES: " + subjectivesInTxT.text);
@@ -37,17 +37,18 @@ public class HighscoreManager : MonoBehaviour
         var adjective = "";
         var subjective = "";
 
-        var adjectiveIndex = (int) Mathf.Floor(UnityEngine.Random.value * adjectives.Count);
+        var adjectiveIndex = (int) Mathf.Floor(UnityEngine.Random.value * (adjectives.Count - 1));
+        print(adjective);
         adjective = adjectives[adjectiveIndex];
 
         if (forFunNamesEnabled && (forFunChance > UnityEngine.Random.value))
         {
-            var subjectiveIndex = (int) Mathf.Floor(UnityEngine.Random.value * ForFunSubjectives.Count);
+            var subjectiveIndex = (int) Mathf.Floor(UnityEngine.Random.value * (ForFunSubjectives.Count - 1));
             subjective = ForFunSubjectives[subjectiveIndex];
         }
         else
         {
-            var subjectiveIndex = (int) Mathf.Floor(UnityEngine.Random.value * subjectives.Count);
+            var subjectiveIndex = (int) Mathf.Floor(UnityEngine.Random.value * (subjectives.Count - 1));
             subjective = subjectives[subjectiveIndex];    
         }
 
