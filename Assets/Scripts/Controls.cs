@@ -19,7 +19,11 @@ public class Controls : MonoBehaviour
     private float ignoreFirstMessagesOnStartTime;
     public float ignoreFirstMessagesOnStartTimeToWait;
 
-
+    public AnimationController animCtrl;
+    private bool leftIsPaddling;
+    private bool rightIsPaddling;
+    
+    
     // Invoked when a line of data is received from the serial device.
     private void Awake()
     {
@@ -48,25 +52,29 @@ public class Controls : MonoBehaviour
             if (Math.Abs(leftRotationSensorValue - leftRotationSensorValuesFromLastRead) > movementDeadzone)
             {
                 gm.leftPlayerIsPaddling = true;
+                leftIsPaddling = true;
                 lastTimeLeftPlayerPaddled = Time.time;
             }
             else if (lastTimeLeftPlayerPaddled < Time.time + timeToWaitForNextRow)
             {
                 gm.leftPlayerIsPaddling = false;
+                leftIsPaddling = false;
             }
 
             if (Math.Abs(rightRotationSensorValue - rightRotationSensorValuesFromLastRead) > movementDeadzone)
             {
                 gm.rightPlayerIsPaddling = true;
+                rightIsPaddling = true;
                 lastTimeRightPlayerPaddled = Time.time;
             }
             else if (lastTimeRightPlayerPaddled < Time.time + timeToWaitForNextRow)
             {
+                rightIsPaddling = false;
                 gm.rightPlayerIsPaddling = false;
             }
-
             leftRotationSensorValuesFromLastRead = leftRotationSensorValue;
             rightRotationSensorValuesFromLastRead = rightRotationSensorValue;
+            animCtrl.UpdateAnimations(leftIsPaddling, rightIsPaddling);
         }
     }
 

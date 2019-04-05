@@ -17,9 +17,9 @@ public class AnimationController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void UpdateAnimations(bool leftPlayerIsPaddling, bool rightPlayerIsPaddling)
     {
-        animLeft.SetBool(IsPaddling, gm.leftPlayerIsPaddling);
-        animRight.SetBool(IsPaddling, gm.rightPlayerIsPaddling);
+        animLeft.SetBool(IsPaddling, leftPlayerIsPaddling);
+        animRight.SetBool(IsPaddling, rightPlayerIsPaddling);
     }
 }
