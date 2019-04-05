@@ -21,10 +21,6 @@ public class NameGenerator : MonoBehaviour
     // Needs to get called from GameManager to make sure these are generated before "GenerateTeamName" is called.
     public void InitiateNameGenerator()
     {
-        
-        print("SUBJECTIVES: " + subjectivesInTxT.text);
-        
-        
         subjectives = handleTXT(subjectivesInTxT);
         adjectives = handleTXT(adjectivesInTxT);
         ForFunSubjectives = handleTXT(forFunSubjectivesTxT);
@@ -38,7 +34,6 @@ public class NameGenerator : MonoBehaviour
         var subjective = "";
 
         var adjectiveIndex = (int) Mathf.Floor(UnityEngine.Random.value * (adjectives.Count - 1));
-        print(adjective);
         adjective = adjectives[adjectiveIndex];
 
         if (forFunNamesEnabled && (forFunChance > UnityEngine.Random.value))

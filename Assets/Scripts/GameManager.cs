@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Random = System.Random;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -91,12 +91,18 @@ public class GameManager : MonoBehaviour
     public Canvas firstNewGameCanvas;
 
     public bool isGameOver = false;
+    public float gameOverWait = 2;
+    private float gameOverTime = 0;
     public bool shouldStartGame = false;
-
+    public TMP_Text HighscoresText;
+    
+    
     public TMP_Text teamNameTextUI;
     public string teamName;
 
     public NameGenerator nameGen;
+
+    public HighScoreManager HSman;
 
 
     // Start is called before the first frame update
@@ -104,17 +110,16 @@ public class GameManager : MonoBehaviour
     {
         timeAtLastSkyboxShift = UnityEngine.Time.time;
 
-        collectiblesUiElement.text = $"Amount of collectibles: {collectiblesCollected}";
+        collectiblesUiElement.text = "0";
 
         originalYPosition = boat.transform.localPosition.y;
         newYPosition = originalYPosition;
 
         nameGen = this.gameObject.GetComponent<NameGenerator>();
-
         
         nameGen.InitiateNameGenerator();
         teamName = nameGen.generateTeamName();
-        print(teamName);
+        print("Team name is:" + teamName);
         teamNameTextUI.text = teamName;
     }
 
@@ -129,13 +134,13 @@ public class GameManager : MonoBehaviour
             if (leftPlayerIsPaddling && rightPlayerIsPaddling)
             {
                 shouldStartGame = true;
+                firstNewGameCanvas.gameObject.SetActive(false);
+                gameOverCanvas.gameObject.SetActive(false);
+                gameCanvas.gameObject.SetActive(true);
             }
         }
         else
         {
-            firstNewGameCanvas.gameObject.SetActive(false);
-            gameCanvas.gameObject.SetActive(true);
-
             if (!isGameOver)
             {
                 // Movement
@@ -318,8 +323,33 @@ public class GameManager : MonoBehaviour
             {
                 gameCanvas.gameObject.SetActive(false);
                 gameOverCanvas.gameObject.SetActive(true);
+                
+                if (String.IsNullOrEmpty(HighscoresText.text))
+                {
+                    HSman.SaveHighScore(teamName, collectiblesCollected);
 
-                if (leftPlayerIsPaddling && rightPlayerIsPaddling)
+                    var highscoress = HSman.GetHighScore();
+
+                    var sb = new StringBuilder();
+
+                    for (int i = 0; i < highscoress.Count; i++)
+                    {
+                        sb.Append($"{highscoress[i].name} : {highscoress[i].score} \n");
+                    }
+
+                    HighscoresText.text = sb.ToString();
+
+                    HighscoresText.alignment = TextAlignmentOptions.Midline;
+
+                }
+                
+                if (gameOverTime == 0)
+                {
+                    gameOverTime = UnityEngine.Time.time;
+                }
+                
+                
+                if (leftPlayerIsPaddling && rightPlayerIsPaddling && (UnityEngine.Time.time > gameOverTime + gameOverWait))
                 {
                     SceneManager.LoadScene(0);
                 }
@@ -349,7 +379,7 @@ public class GameManager : MonoBehaviour
     public void IncrementCollectiblesCollected()
     {
         collectiblesCollected++;
-        collectiblesUiElement.text = $"Vingummi Bamser: {collectiblesCollected}";
+        collectiblesUiElement.text = collectiblesCollected.ToString();
 
         // Speed up if collected a milestone.
 
