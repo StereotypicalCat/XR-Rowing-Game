@@ -70,6 +70,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] Obstacles;
     public float relativeSpawnChance = 5;
+    
+    // Used to make spawn chance depend on last obstacle spawn.
+    public float distanceAtLastObstacleSpawn = 0;
+    public float minimumDistanceToHaveTravelledBeforeNewObjectSpawn = 100;
+    public float scalerMultiplication = 0.001f;
 
 
     // Speeding Up
@@ -210,6 +215,7 @@ public class GameManager : MonoBehaviour
                 if (shouldSpawnObjects)
                 {
                     var randomValue = UnityEngine.Random.value;
+                    var gameAreaXValue = gameArea.transform.position.x;
 
                     #region collectible
 
@@ -232,9 +238,10 @@ public class GameManager : MonoBehaviour
 
                     #region obstacle
 
-                    if (randomValue <= obstacleSpawnRatePercentage * 0.01)
+                    if ((gameAreaXValue - distanceAtLastObstacleSpawn > minimumDistanceToHaveTravelledBeforeNewObjectSpawn) && (randomValue <= (obstacleSpawnRatePercentage * 0.01) * ((gameAreaXValue - distanceAtLastObstacleSpawn) * scalerMultiplication)))
                     {
-                        var distanceFromPlayerToSpawnX = gameArea.transform.position.x + obstacleMinDistanceFromPlayer +
+                        distanceAtLastObstacleSpawn = gameAreaXValue;
+                        var distanceFromPlayerToSpawnX = gameAreaXValue + obstacleMinDistanceFromPlayer +
                                                          (UnityEngine.Random.value * obstacleSpawnDistanceRange);
 
                         var distanceFromPlayerToSpawnZ = WATER_WIDTH * UnityEngine.Random.value;
@@ -244,7 +251,7 @@ public class GameManager : MonoBehaviour
                         if (UnityEngine.Random.value < (1 / relativeSpawnChance))
                         {
                             Instantiate(Obstacles[0],
-                                new Vector3(distanceFromPlayerToSpawnX + gameArea.transform.position.x, 0,
+                                new Vector3(distanceFromPlayerToSpawnX + gameAreaXValue, 0,
                                     distanceFromPlayerToSpawnZ - WATER_WIDTH * 0.5f),
                                 Quaternion.Euler(new Vector3(90, 0, 90)));
                         }
@@ -258,7 +265,7 @@ public class GameManager : MonoBehaviour
                         else
                         {
                             Instantiate(Obstacles[1],
-                                new Vector3(distanceFromPlayerToSpawnX + gameArea.transform.position.x, 0,
+                                new Vector3(distanceFromPlayerToSpawnX + gameAreaXValue, 0,
                                     distanceFromPlayerToSpawnZ - WATER_WIDTH * 0.5f),
                                 Quaternion.Euler(new Vector3(0, 0, 0)));
                         }

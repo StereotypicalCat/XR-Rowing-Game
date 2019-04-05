@@ -179,7 +179,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   lastTimeRightPlayerPaddled: 0
   lastTimeLeftPlayerPaddled: 0
-  timeToWaitForNextRow: 0.25
+  timeToWaitForNextRow: 0
   ignoreFirstMessagesOnStartTimeToWait: 3
   animCtrl: {fileID: 0}
 --- !u!114 &1164884485931200690
@@ -199,19 +199,6 @@ MonoBehaviour:
     type: 3}
   explosionParticleSystem: {fileID: 1599718021928974, guid: 21461e6c060baf044ac3e717ed4170cb,
     type: 3}
---- !u!65 &7147875305367470634
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1164884485931200694}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.035, y: 0.05, z: 0.04}
-  m_Center: {x: 0, y: -0.005, z: 0.01}
 --- !u!1 &1220184197927692089
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,16 +1207,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2000
       objectReference: {fileID: 0}
-    - target: {fileID: 409120755398974272, guid: aaf8251c9872e2b439f24677be7d4a2d,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 4529078fd8905524a9f52370c8c4053e, type: 2}
     - target: {fileID: 5510597543998152214, guid: aaf8251c9872e2b439f24677be7d4a2d,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: e1a8090b720d56546838f6bbf5cb5004, type: 2}
+    - target: {fileID: 409120755398974272, guid: aaf8251c9872e2b439f24677be7d4a2d,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4529078fd8905524a9f52370c8c4053e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaf8251c9872e2b439f24677be7d4a2d, type: 3}
 --- !u!1 &1164884485931200694 stripped

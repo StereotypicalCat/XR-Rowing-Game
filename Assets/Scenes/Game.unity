@@ -157,8 +157,8 @@ MonoBehaviour:
   gameAreaRightRocksZValue: -363
   gameAreaLeftRocksZValue: 455
   shouldMoveForwards: 1
-  forwardSpeed: 1
-  sidewaysSpeed: -1.5
+  forwardSpeed: 2
+  sidewaysSpeed: -3
   direction: 0
   rowingSpeedMultiplierForward: 4
   rowingSpeedMultiplierSideways: 2
@@ -183,15 +183,18 @@ MonoBehaviour:
   - {fileID: 1179533392099982640, guid: 002d03476de81474f8e494660295829e, type: 3}
   - {fileID: 1179533392099982640, guid: 73e14c24e3fcb804aba7ae82a3c0d71b, type: 3}
   - {fileID: 1179533392099982640, guid: a0fdbf1e788082545950a2cd3ec0d5dd, type: 3}
-  obstacleSpawnRatePercentage: 0.8
+  obstacleSpawnRatePercentage: 1.1
   obstacleMinDistanceFromPlayer: 1000
   obstacleSpawnDistanceRange: 1000
   Obstacles:
   - {fileID: 4117996474579815354, guid: 930184784c7d08246b42a76465b832fd, type: 3}
   - {fileID: 8762043553996368394, guid: 1253748b6abe17e46b74f63497549f52, type: 3}
-  relativeSpawnChance: 5
+  relativeSpawnChance: 6.5
+  distanceAtLastObstacleSpawn: 0
+  minimumDistanceToHaveTravelledBeforeNewObjectSpawn: 600
+  scalerMultiplication: 0.003
   collectiblesToCollectToSpeedUp: 10
-  amountToSpeedUp: 0.1
+  amountToSpeedUp: 0.4
   shouldDoDayNightCycle: 1
   skyboxDay: {fileID: 2100000, guid: 7d1430089afb5854892670b854d1d684, type: 2}
   skyboxNight: {fileID: 2100000, guid: 5ce75119787234e4aae0598fcc619b45, type: 2}
@@ -712,7 +715,7 @@ PrefabInstance:
       objectReference: {fileID: 7147875305367470626}
     - target: {fileID: 11442534, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
       propertyPath: portName
-      value: COM3
+      value: COM5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
@@ -3206,11 +3209,6 @@ PrefabInstance:
       propertyPath: animCtrl
       value: 
       objectReference: {fileID: 7406357}
-    - target: {fileID: 1164884485931200689, guid: 1021b89dfbccf304b90ea1b20915e6f0,
-        type: 3}
-      propertyPath: timeToWaitForNextRow
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1021b89dfbccf304b90ea1b20915e6f0, type: 3}
 --- !u!95 &8293619492882084501 stripped

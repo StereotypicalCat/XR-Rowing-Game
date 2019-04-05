@@ -1,16 +1,12 @@
 # Mario Universe
 Mario
 Luigi
-Peach
 Toad
-Uoshi
+Yoshi
 Bowser
 Wario
 Waluigi
 Koopa
-
-# Games
-Roblox
 
 # Animal Names
 Kat
