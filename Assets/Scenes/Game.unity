@@ -189,7 +189,9 @@ MonoBehaviour:
   Obstacles:
   - {fileID: 4117996474579815354, guid: 930184784c7d08246b42a76465b832fd, type: 3}
   - {fileID: 8762043553996368394, guid: 1253748b6abe17e46b74f63497549f52, type: 3}
-  relativeSpawnChance: 6.5
+  - {fileID: 7666682925647189927, guid: 90fcfca6a9629704e88a3a9041ccbb01, type: 3}
+  relativeSpawnChanceDonut: 5
+  relativeSpawnChanceOctopus: 25
   distanceAtLastObstacleSpawn: 0
   minimumDistanceToHaveTravelledBeforeNewObjectSpawn: 600
   scalerMultiplication: 0.003

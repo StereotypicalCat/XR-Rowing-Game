@@ -69,7 +69,8 @@ public class GameManager : MonoBehaviour
     public float obstacleSpawnDistanceRange = 600;
 
     public GameObject[] Obstacles;
-    public float relativeSpawnChance = 5;
+    public float relativeSpawnChanceDonut = 5;
+    public float relativeSpawnChanceOctopus = 15;
     
     // Used to make spawn chance depend on last obstacle spawn.
     public float distanceAtLastObstacleSpawn = 0;
@@ -248,13 +249,23 @@ public class GameManager : MonoBehaviour
 
 
                         // If the chance is right, it spawns a donut.
-                        if (UnityEngine.Random.value < (1 / relativeSpawnChance))
+                        if (UnityEngine.Random.value < (1 / relativeSpawnChanceDonut))
                         {
                             Instantiate(Obstacles[0],
                                 new Vector3(distanceFromPlayerToSpawnX + gameAreaXValue, 0,
                                     distanceFromPlayerToSpawnZ - WATER_WIDTH * 0.5f),
                                 Quaternion.Euler(new Vector3(90, 0, 90)));
                         }
+                        // If the chance is right and it didnt spawn a donut, spawn an octopus.
+                        else if (UnityEngine.Random.value < (1 / relativeSpawnChanceOctopus))
+                        {
+                            // The octopus needs to be spawned "in the middle", so we throw away its generated Z.
+                            Instantiate(Obstacles[2],
+                                new Vector3(distanceFromPlayerToSpawnX + gameAreaXValue, 530,
+                                    0),
+                                Quaternion.Euler(new Vector3(0, -90, 0)));
+                        }
+                        
                         // Else if the chance is right spawn an octopus
 /*                else if (UnityEngine.Random.value < 1 / relativeSpawnChance)
                 {
