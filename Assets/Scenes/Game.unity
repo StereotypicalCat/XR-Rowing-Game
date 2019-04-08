@@ -191,7 +191,7 @@ MonoBehaviour:
   - {fileID: 8762043553996368394, guid: 1253748b6abe17e46b74f63497549f52, type: 3}
   - {fileID: 7666682925647189927, guid: 90fcfca6a9629704e88a3a9041ccbb01, type: 3}
   relativeSpawnChanceDonut: 5
-  relativeSpawnChanceOctopus: 25
+  relativeSpawnChanceOctopus: 10
   distanceAtLastObstacleSpawn: 0
   minimumDistanceToHaveTravelledBeforeNewObjectSpawn: 600
   scalerMultiplication: 0.003
@@ -526,6 +526,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Marshmallow (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8762043553996368394, guid: 1253748b6abe17e46b74f63497549f52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8762043553996338730, guid: 1253748b6abe17e46b74f63497549f52,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -717,7 +722,7 @@ PrefabInstance:
       objectReference: {fileID: 7147875305367470626}
     - target: {fileID: 11442534, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
       propertyPath: portName
-      value: COM5
+      value: COM10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
@@ -1644,6 +1649,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Donut Object
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117996474579815354, guid: 930184784c7d08246b42a76465b832fd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4117996474579785626, guid: 930184784c7d08246b42a76465b832fd,
         type: 3}
@@ -3211,6 +3221,11 @@ PrefabInstance:
       propertyPath: animCtrl
       value: 
       objectReference: {fileID: 7406357}
+    - target: {fileID: 1164884485931200689, guid: 1021b89dfbccf304b90ea1b20915e6f0,
+        type: 3}
+      propertyPath: movementDeadzone
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1021b89dfbccf304b90ea1b20915e6f0, type: 3}
 --- !u!95 &8293619492882084501 stripped

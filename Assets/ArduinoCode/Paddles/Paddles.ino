@@ -27,5 +27,5 @@ void loop() {
   print(leftSensorValue);
   Serial.println();
   
-  delay(500);
+  delay(250);
 }

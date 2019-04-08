@@ -192,14 +192,15 @@ public class GameManager : MonoBehaviour
                     }
 
                     if (this.direction == Enums.direction.Left &&
-                        gameArea.transform.position.z < gameAreaLeftRocksZValue)
+                        gameArea.transform.position.z > gameAreaRightRocksZValue
+                        )
                     {
                         newTranslatePosition.z = sidewaysSpeed;
                         // print("Turning : Left");
                         newTranslatePosition.x += forwardSpeed * rowingSpeedMultiplierSideways;
                     }
-                    else if (this.direction == Enums.direction.Right &&
-                             gameArea.transform.position.z > gameAreaRightRocksZValue)
+                    else if (this.direction == Enums.direction.Right && gameArea.transform.position.z < gameAreaLeftRocksZValue
+                             )
                     {
                         newTranslatePosition.z = -sidewaysSpeed;
                         // print("Turning : Right");
