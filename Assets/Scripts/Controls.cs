@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class Controls : MonoBehaviour
@@ -22,8 +23,9 @@ public class Controls : MonoBehaviour
     public AnimationController animCtrl;
     private bool leftIsPaddling;
     private bool rightIsPaddling;
-    
-    
+
+    private bool isFirstRow = true;
+
     // Invoked when a line of data is received from the serial device.
     private void Awake()
     {
@@ -47,34 +49,42 @@ public class Controls : MonoBehaviour
 
             Int32.TryParse(leftRotationSensorValueAsString, out var leftRotationSensorValue);
             Int32.TryParse(rightRotationSensorValueAsString, out var rightRotationSensorValue);
+            if (!isFirstRow)
+            {
+                if (Math.Abs(leftRotationSensorValue - leftRotationSensorValuesFromLastRead) > movementDeadzone)
+                {
+                    gm.leftPlayerIsPaddling = true;
+                    leftIsPaddling = true;
+                    lastTimeLeftPlayerPaddled = Time.time;
+                }
+                else if (lastTimeLeftPlayerPaddled < Time.time + timeToWaitForNextRow)
+                {
+                    gm.leftPlayerIsPaddling = false;
+                    leftIsPaddling = false;
+                }
 
+                if (Math.Abs(rightRotationSensorValue - rightRotationSensorValuesFromLastRead) > movementDeadzone)
+                {
+                    gm.rightPlayerIsPaddling = true;
+                    rightIsPaddling = true;
+                    lastTimeRightPlayerPaddled = Time.time;
+                }
+                else if (lastTimeRightPlayerPaddled < Time.time + timeToWaitForNextRow)
+                {
+                    rightIsPaddling = false;
+                    gm.rightPlayerIsPaddling = false;
+                }
 
-            if (Math.Abs(leftRotationSensorValue - leftRotationSensorValuesFromLastRead) > movementDeadzone)
-            {
-                gm.leftPlayerIsPaddling = true;
-                leftIsPaddling = true;
-                lastTimeLeftPlayerPaddled = Time.time;
+                leftRotationSensorValuesFromLastRead = leftRotationSensorValue;
+                rightRotationSensorValuesFromLastRead = rightRotationSensorValue;
+                animCtrl.UpdateAnimations(leftIsPaddling, rightIsPaddling);
             }
-            else if (lastTimeLeftPlayerPaddled < Time.time + timeToWaitForNextRow)
+            else
             {
-                gm.leftPlayerIsPaddling = false;
-                leftIsPaddling = false;
+                isFirstRow = false;
+                leftRotationSensorValuesFromLastRead = leftRotationSensorValue;
+                rightRotationSensorValuesFromLastRead = rightRotationSensorValue;
             }
-
-            if (Math.Abs(rightRotationSensorValue - rightRotationSensorValuesFromLastRead) > movementDeadzone)
-            {
-                gm.rightPlayerIsPaddling = true;
-                rightIsPaddling = true;
-                lastTimeRightPlayerPaddled = Time.time;
-            }
-            else if (lastTimeRightPlayerPaddled < Time.time + timeToWaitForNextRow)
-            {
-                rightIsPaddling = false;
-                gm.rightPlayerIsPaddling = false;
-            }
-            leftRotationSensorValuesFromLastRead = leftRotationSensorValue;
-            rightRotationSensorValuesFromLastRead = rightRotationSensorValue;
-            animCtrl.UpdateAnimations(leftIsPaddling, rightIsPaddling);
         }
     }
 
