@@ -36,7 +36,7 @@ public class Controls : MonoBehaviour
     {
         if (ignoreFirstMessagesOnStartTime + ignoreFirstMessagesOnStartTimeToWait < UnityEngine.Time.time)
         {
-            // print("Recieved: " + msg);
+            print("Recieved: " + msg);
 
             // The string that arrives looks something like this: R:325|L:286
 
@@ -69,7 +69,7 @@ public class Controls : MonoBehaviour
                     rightIsPaddling = true;
                     lastTimeRightPlayerPaddled = Time.time;
                 }
-                else if (lastTimeRightPlayerPaddled < Time.time + timeToWaitForNextRow)
+                else if (lastTimeRightPlayerPaddled < Time.time + timeToWaitForNextRow + 1f)
                 {
                     rightIsPaddling = false;
                     gm.rightPlayerIsPaddling = false;

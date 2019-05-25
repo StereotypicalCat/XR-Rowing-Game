@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviour
                     else if (this.direction == Enums.direction.Right && gameArea.transform.position.z < gameAreaLeftRocksZValue
                              )
                     {
-                        newTranslatePosition.z = -sidewaysSpeed;
+                        newTranslatePosition.z = -sidewaysSpeed + 0.2f        ;
                         // print("Turning : Right");
                         newTranslatePosition.x += forwardSpeed * rowingSpeedMultiplierSideways;
                     }

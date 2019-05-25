@@ -1,4 +1,4 @@
-# Mario Universe
+﻿# Mario Universe
 Mario
 Luigi
 Toad
@@ -27,6 +27,8 @@ Kanin
 Ulv
 Wombat
 Kænguru
+Hamster
+Myresluger
 
 
 # Mythology
@@ -38,6 +40,7 @@ Odin
 # Popular Movies
 Superman
 Batman
+Spiderman
 Wolverine
 
 

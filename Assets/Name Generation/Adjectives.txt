@@ -1,8 +1,8 @@
-# Colors
-Blåe
+﻿# Colors
+Blå
 Røde
 Grønne
-Lillae
+Lilla
 Gule
 Orange
 Pinke
@@ -14,8 +14,6 @@ Gigante
 Enorme
 
 # Countries
-Amerikanske
-Britiske
 Franske
 Japanske
 Norske

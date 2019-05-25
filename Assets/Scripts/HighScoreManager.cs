@@ -31,6 +31,7 @@ public class HighScoreManager : MonoBehaviour
 
     void Awake()
     {
+    
         if (m_instance == null)
         {
             m_instance = this;
