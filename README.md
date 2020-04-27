@@ -1,7 +1,8 @@
 # XR-Rowing-Game
 A rowing game for kids based on External Reality concepts
 ## What?
-This project is meant to be a small game for children, which is designed to help teach them how to cooperate and communicate. Paddles from the real world are connected to an Arduino, which sends its input to Unity, where the game plays out, and the children have to evade obstacles and collect collectables. The product was tested on children, but for legal reasons, I can't show the footage of the children using the contraption. Instead, here is a video of a few of my groupmates testing the game: https://lucaswinther.info/videos/My%20new%20video%20project1.mp4.
+This project is meant to be a small game for children, which is designed to help teach them how to cooperate and communicate. Paddles from the real world are connected to an Arduino, which sends its input to Unity, where the game plays out, and the children have to evade obstacles and collect collectables. The product was tested on children, but for legal reasons, I can't show the footage of the children using the contraption.
+
 ## Credits
 Though this project was made by me (Lucas Winther), some of the assets in this project that wasn't created by me include:
 * The Unity3D game engine
